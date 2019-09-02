@@ -44,3 +44,22 @@ resource "aws_security_group_rule" "allow_cluster_inbound_from_self_api" {
   security_group_id = var.security_group_id
 }
 
+resource "aws_security_group_rule" "allow_cluster_outbound_to_self" {
+  type      = "egress"
+  from_port = var.cluster_port
+  to_port   = var.cluster_port
+  protocol  = "tcp"
+  self      = true
+
+  security_group_id = var.security_group_id
+}
+
+resource "aws_security_group_rule" "allow_cluster_outbound_to_self_api" {
+  type      = "egress"
+  from_port = var.api_port
+  to_port   = var.api_port
+  protocol  = "tcp"
+  self      = true
+
+  security_group_id = var.security_group_id
+}
