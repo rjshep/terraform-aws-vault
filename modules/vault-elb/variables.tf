@@ -127,3 +127,7 @@ variable "security_group_tags" {
   default     = {}
 }
 
+variable "cluster_security_group_id" {
+  description = "SG ID of the vault cluster"
+  type        = string
+}
